@@ -42,7 +42,7 @@ const Settings = () => {
             style={{ borderRadius: 55, marginTop: 63 }}
           >
             <View style={styles.rulesContainer}>
-              <Text style={styles.title}>BACKGROUND IMAGE</Text>
+              <Text style={styles.title}>BACKGROUND MUSIC</Text>
               <TouchableOpacity
                 activeOpacity={0.7}
                 onPress={() => {

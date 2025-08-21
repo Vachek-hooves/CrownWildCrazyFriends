@@ -33,7 +33,7 @@ const Game = () => {
     <AppBackground>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={[styles.container]}>
-          <Header title={'GAME RULES'} />
+          <Header title={'START GAME'} />
           <LinearGradient
             colors={['#B92D05', 'rgba(185, 45, 5, 0.72)']}
             start={{ x: 0, y: 0 }}

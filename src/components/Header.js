@@ -43,20 +43,9 @@ const Header = ({ title, screen }) => {
       )}
 
       <LinearGradient
-        colors={['#ffffffff', '#FFF8CE']}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 0, y: 0.6 }}
+        colors={['rgba(255, 248, 206, 1)', 'rgba(222, 205, 109, 1)']}
         style={[styles.headerContainer]}
       >
-        <LinearGradient
-          colors={['rgba(253, 218, 22, 0.73)', 'rgba(255, 248, 206, 1)']}
-          locations={[0, 0.3]}
-          style={{
-            ...StyleSheet.absoluteFillObject,
-            borderRadius: 33,
-            height: Platform.OS === 'ios' ? '40%' : '84%',
-          }}
-        />
         <Text style={[styles.headerText]}>{title}</Text>
       </LinearGradient>
     </View>

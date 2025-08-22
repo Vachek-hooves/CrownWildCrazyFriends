@@ -15,6 +15,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import AppBackground from '../components/AppBackground';
 import MediumButton from '../components/MediumButton';
 import Header from '../components/Header';
+import WelcomeAnimationWrapper from '../components/WelcomeAnimationWrapper';
 
 const { height } = Dimensions.get('window');
 
@@ -23,35 +24,37 @@ const Game = () => {
   const [player1, setPlayer1] = useState('');
   const [player2, setPlayer2] = useState('');
   const [player3, setPlayer3] = useState('');
+  const [player4, setPlayer4] = useState('');
   const [index, setIndex] = useState(1);
   const [showRules, setShowRules] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
 
-  const players = [player1, player2, player3];
+  const players = [player1, player2, player3, player4];
 
   return (
     <AppBackground>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={[styles.container]}>
           <Header title={'START GAME'} />
-          <LinearGradient
-            colors={['#B92D05', 'rgba(185, 45, 5, 0.72)']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            style={{ borderRadius: 55, marginTop: 53 }}
-          >
-            <View
-              style={[
-                styles.rulesContainer,
-                showRules && { paddingTop: 32, paddingBottom: 36 },
-              ]}
+          <WelcomeAnimationWrapper>
+            <LinearGradient
+              colors={['#B92D05', 'rgba(185, 45, 5, 0.72)']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={{ borderRadius: 55, marginTop: 53 }}
             >
-              {showRules ? (
-                <View>
-                  <Text style={styles.title}>GAME RULES</Text>
-                  <Text
-                    style={styles.description}
-                  >{`Add all players, specifying their names and avatars.
+              <View
+                style={[
+                  styles.rulesContainer,
+                  showRules && { paddingTop: 32, paddingBottom: 36 },
+                ]}
+              >
+                {showRules ? (
+                  <View>
+                    <Text style={styles.title}>GAME RULES</Text>
+                    <Text
+                      style={styles.description}
+                    >{`Add all players, specifying their names and avatars.
 
 Players take turns, starting with the one chosen randomly or manually.
 
@@ -63,123 +66,151 @@ If a player refuses or does not have time to complete the task, the turn passes 
 
 The game continues until the company decides to stop - there are no winners, the main thing is to have fun.`}</Text>
 
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      gap: 11,
-                    }}
-                  >
-                    <TouchableOpacity
-                      style={[
-                        styles.checkBox,
-                        isChecked && { backgroundColor: '#fff' },
-                      ]}
-                      activeOpacity={0.7}
-                      onPress={() => setIsChecked(true)}
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        gap: 11,
+                      }}
                     >
-                      {isChecked && (
-                        <Image
-                          source={require('../assets/icons/checked.png')}
-                        />
-                      )}
-                    </TouchableOpacity>
-                    <Text style={styles.checkText}>I READ RULES</Text>
+                      <TouchableOpacity
+                        style={[
+                          styles.checkBox,
+                          isChecked && { backgroundColor: '#fff' },
+                        ]}
+                        activeOpacity={0.7}
+                        onPress={() => setIsChecked(true)}
+                      >
+                        {isChecked && (
+                          <Image
+                            source={require('../assets/icons/checked.png')}
+                          />
+                        )}
+                      </TouchableOpacity>
+                      <Text style={styles.checkText}>I READ RULES</Text>
+                    </View>
                   </View>
-                </View>
-              ) : (
-                <>
-                  <Text style={styles.title}>ADD PLAYERS</Text>
-                  <View style={{}}>
-                    <TextInput
-                      style={styles.input}
-                      textAlign="center"
-                      placeholder="ENTER NAME"
-                      value={player1.toUpperCase()}
-                      onChangeText={setPlayer1}
-                      maxLength={12}
-                      placeholderTextColor={'rgba(185, 45, 5, 0.45)'}
-                    />
-                    {player1 && (
+                ) : (
+                  <>
+                    <Text style={styles.title}>ADD PLAYERS</Text>
+                    <View style={{}}>
+                      <TextInput
+                        style={styles.input}
+                        textAlign="center"
+                        placeholder="ENTER NAME"
+                        value={player1.toUpperCase()}
+                        onChangeText={setPlayer1}
+                        maxLength={12}
+                        placeholderTextColor={'rgba(185, 45, 5, 0.45)'}
+                      />
+                      {player1 && (
+                        <TouchableOpacity
+                          activeOpacity={0.7}
+                          style={styles.removeBtn}
+                          onPress={() => setPlayer1('')}
+                        >
+                          <Image
+                            source={require('../assets/icons/remove.png')}
+                          />
+                        </TouchableOpacity>
+                      )}
+                    </View>
+                    {index > 1 && (
+                      <View style={{}}>
+                        <TextInput
+                          style={styles.input}
+                          textAlign="center"
+                          placeholder="ENTER NAME"
+                          value={player2.toUpperCase()}
+                          maxLength={12}
+                          onChangeText={setPlayer2}
+                          placeholderTextColor={'rgba(185, 45, 5, 0.45)'}
+                        />
+                        {player2 && (
+                          <TouchableOpacity
+                            activeOpacity={0.7}
+                            style={styles.removeBtn}
+                            onPress={() => setPlayer2('')}
+                          >
+                            <Image
+                              source={require('../assets/icons/remove.png')}
+                            />
+                          </TouchableOpacity>
+                        )}
+                      </View>
+                    )}
+                    {index > 2 && (
+                      <View style={{}}>
+                        <TextInput
+                          style={styles.input}
+                          textAlign="center"
+                          placeholder="ENTER NAME"
+                          value={player3.toUpperCase()}
+                          maxLength={12}
+                          onChangeText={setPlayer3}
+                          placeholderTextColor={'rgba(185, 45, 5, 0.45)'}
+                        />
+                        {player3 && (
+                          <TouchableOpacity
+                            activeOpacity={0.7}
+                            style={styles.removeBtn}
+                            onPress={() => setPlayer3('')}
+                          >
+                            <Image
+                              source={require('../assets/icons/remove.png')}
+                            />
+                          </TouchableOpacity>
+                        )}
+                      </View>
+                    )}
+                    {index > 3 && (
+                      <View style={{}}>
+                        <TextInput
+                          style={styles.input}
+                          textAlign="center"
+                          placeholder="ENTER NAME"
+                          value={player4.toUpperCase()}
+                          maxLength={12}
+                          onChangeText={setPlayer4}
+                          placeholderTextColor={'rgba(185, 45, 5, 0.45)'}
+                        />
+                        {player4 && (
+                          <TouchableOpacity
+                            activeOpacity={0.7}
+                            style={styles.removeBtn}
+                            onPress={() => setPlayer4('')}
+                          >
+                            <Image
+                              source={require('../assets/icons/remove.png')}
+                            />
+                          </TouchableOpacity>
+                        )}
+                      </View>
+                    )}
+
+                    {index > 1 && (
                       <TouchableOpacity
                         activeOpacity={0.7}
-                        style={styles.removeBtn}
-                        onPress={() => setPlayer1('')}
+                        onPress={() => setIndex(index + 1)}
+                        style={{ position: 'absolute', bottom: -80 }}
                       >
-                        <Image source={require('../assets/icons/remove.png')} />
+                        <Image source={require('../assets/images/add.png')} />
                       </TouchableOpacity>
                     )}
-                  </View>
-                  {index > 1 && (
-                    <View style={{}}>
-                      <TextInput
-                        style={styles.input}
-                        textAlign="center"
-                        placeholder="ENTER NAME"
-                        value={player2.toUpperCase()}
-                        maxLength={12}
-                        onChangeText={setPlayer2}
-                        placeholderTextColor={'rgba(185, 45, 5, 0.45)'}
-                      />
-                      {player2 && (
-                        <TouchableOpacity
-                          activeOpacity={0.7}
-                          style={styles.removeBtn}
-                          onPress={() => setPlayer2('')}
-                        >
-                          <Image
-                            source={require('../assets/icons/remove.png')}
-                          />
-                        </TouchableOpacity>
-                      )}
-                    </View>
-                  )}
-                  {index > 2 && (
-                    <View style={{}}>
-                      <TextInput
-                        style={styles.input}
-                        textAlign="center"
-                        placeholder="ENTER NAME"
-                        value={player3.toUpperCase()}
-                        maxLength={12}
-                        onChangeText={setPlayer3}
-                        placeholderTextColor={'rgba(185, 45, 5, 0.45)'}
-                      />
-                      {player3 && (
-                        <TouchableOpacity
-                          activeOpacity={0.7}
-                          style={styles.removeBtn}
-                          onPress={() => setPlayer3('')}
-                        >
-                          <Image
-                            source={require('../assets/icons/remove.png')}
-                          />
-                        </TouchableOpacity>
-                      )}
-                    </View>
-                  )}
-                  {index > 1 && (
-                    <TouchableOpacity
-                      activeOpacity={0.7}
-                      onPress={() => setIndex(index + 1)}
-                      style={{ position: 'absolute', bottom: -80 }}
-                    >
-                      <Image source={require('../assets/images/add.png')} />
-                    </TouchableOpacity>
-                  )}
-                  {index === 1 && (
-                    <TouchableOpacity
-                      activeOpacity={0.7}
-                      onPress={() => setIndex(index + 1)}
-                      style={{}}
-                    >
-                      <Image source={require('../assets/images/add.png')} />
-                    </TouchableOpacity>
-                  )}
-                </>
-              )}
-            </View>
-          </LinearGradient>
+                    {index === 1 && (
+                      <TouchableOpacity
+                        activeOpacity={0.7}
+                        onPress={() => setIndex(index + 1)}
+                        style={{}}
+                      >
+                        <Image source={require('../assets/images/add.png')} />
+                      </TouchableOpacity>
+                    )}
+                  </>
+                )}
+              </View>
+            </LinearGradient>
+          </WelcomeAnimationWrapper>
 
           <View style={{ alignItems: 'center', marginTop: 5 }}>
             {index > 2 && (
@@ -190,6 +221,7 @@ The game continues until the company decides to stop - there are no winners, the
                     style={styles.btn}
                     borders={styles.btnBorders}
                     textStyle={styles.btnText}
+                    btnWidth={'65%'}
                     onPress={() => setShowRules(true)}
                     isDisabled={!player1 || !player2 || !player3}
                   />
@@ -197,23 +229,25 @@ The game continues until the company decides to stop - there are no winners, the
               </>
             )}
 
-            {isChecked ? (
-              <MediumButton
-                title={'START GAME'}
-                style={styles.btn}
-                borders={styles.btnBorders}
-                textStyle={styles.btnText}
-                onPress={() => navigation.navigate('Gameplay', players)}
-              />
-            ) : (
-              <TouchableOpacity
-                activeOpacity={0.7}
-                onPress={() => navigation.goBack()}
-                style={{}}
-              >
-                <Image source={require('../assets/images/back.png')} />
-              </TouchableOpacity>
-            )}
+            <WelcomeAnimationWrapper>
+              {isChecked ? (
+                <MediumButton
+                  title={'START GAME'}
+                  style={styles.btn}
+                  btnWidth={237}
+                  textStyle={styles.btnText}
+                  onPress={() => navigation.navigate('Gameplay', players)}
+                />
+              ) : (
+                <TouchableOpacity
+                  activeOpacity={0.7}
+                  onPress={() => navigation.goBack()}
+                  style={{ top: 40 }}
+                >
+                  <Image source={require('../assets/images/back.png')} />
+                </TouchableOpacity>
+              )}
+            </WelcomeAnimationWrapper>
           </View>
         </View>
       </ScrollView>
@@ -274,13 +308,11 @@ const styles = StyleSheet.create({
     top: 17,
   },
   btn: {
-    width: 237,
     height: 97,
     borderRadius: 33,
     marginBottom: 5,
   },
   btnBorders: {
-    width: 237,
     height: 105,
     left: -1,
     borderRadius: 33,

@@ -14,6 +14,7 @@ import { useState } from 'react';
 import AppBackground from '../components/AppBackground';
 import Header from '../components/Header';
 import { useStore } from '../store/context';
+import WelcomeAnimationWrapper from '../components/WelcomeAnimationWrapper';
 
 const { height } = Dimensions.get('window');
 
@@ -35,71 +36,79 @@ const Settings = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={[styles.container]}>
           <Header title={'SETTINGS'} />
-          <LinearGradient
-            colors={['#B92D05', 'rgba(185, 45, 5, 0.72)']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            style={{ borderRadius: 55, marginTop: 63 }}
-          >
-            <View style={styles.rulesContainer}>
-              <Text style={styles.title}>BACKGROUND MUSIC</Text>
-              <TouchableOpacity
-                activeOpacity={0.7}
-                onPress={() => {
-                  setToggleMusic(!toggleMusic),
-                    setIsEnabledMusic(!isEnabledMusic);
-                }}
-                style={[styles.selectorContainer, toggleMusic && { gap: 15 }]}
-              >
-                {toggleMusic && <Text style={styles.selectorText}>ON</Text>}
-                <View style={styles.selector} />
-                {!toggleMusic && <Text style={styles.selectorText}>OFF</Text>}
-              </TouchableOpacity>
-            </View>
-          </LinearGradient>
-
-          <LinearGradient
-            colors={['#B92D05', 'rgba(185, 45, 5, 0.72)']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            style={{ borderRadius: 55, marginTop: 14 }}
-          >
-            <View style={[styles.rulesContainer]}>
-              <Text style={styles.title}>ORDER OF PLAYERS</Text>
-              <View style={styles.btnsWrap}>
+          <WelcomeAnimationWrapper>
+            <LinearGradient
+              colors={['#B92D05', 'rgba(185, 45, 5, 0.72)']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={{ borderRadius: 55, marginTop: 63 }}
+            >
+              <View style={styles.rulesContainer}>
+                <Text style={styles.title}>BACKGROUND MUSIC</Text>
                 <TouchableOpacity
                   activeOpacity={0.7}
                   onPress={() => {
-                    setOrder(false), setRandomPlayer(false);
+                    setToggleMusic(!toggleMusic),
+                      setIsEnabledMusic(!isEnabledMusic);
                   }}
-                  style={[styles.selectorContainer, order && { opacity: 0.5 }]}
+                  style={[styles.selectorContainer, toggleMusic && { gap: 15 }]}
                 >
-                  {!order && <View style={styles.selector} />}
-                  <Text style={styles.selectorText}>In turn</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  activeOpacity={0.7}
-                  onPress={() => {
-                    setOrder(true), setRandomPlayer(true);
-                  }}
-                  style={[styles.selectorContainer, !order && { opacity: 0.5 }]}
-                >
-                  {order && <View style={styles.selector} />}
-                  <Text style={styles.selectorText}>Random</Text>
+                  {toggleMusic && <Text style={styles.selectorText}>ON</Text>}
+                  <View style={styles.selector} />
+                  {!toggleMusic && <Text style={styles.selectorText}>OFF</Text>}
                 </TouchableOpacity>
               </View>
-            </View>
-          </LinearGradient>
+            </LinearGradient>
 
-          <View style={{ alignItems: 'center' }}>
-            <TouchableOpacity
-              activeOpacity={0.7}
-              style={{ top: 14 }}
-              onPress={() => navigation.goBack()}
+            <LinearGradient
+              colors={['#B92D05', 'rgba(185, 45, 5, 0.72)']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={{ borderRadius: 55, marginTop: 14 }}
             >
-              <Image source={require('../assets/images/lBack.png')} />
-            </TouchableOpacity>
-          </View>
+              <View style={[styles.rulesContainer]}>
+                <Text style={styles.title}>ORDER OF PLAYERS</Text>
+                <View style={styles.btnsWrap}>
+                  <TouchableOpacity
+                    activeOpacity={0.7}
+                    onPress={() => {
+                      setOrder(false), setRandomPlayer(false);
+                    }}
+                    style={[
+                      styles.selectorContainer,
+                      order && { opacity: 0.5 },
+                    ]}
+                  >
+                    {!order && <View style={styles.selector} />}
+                    <Text style={styles.selectorText}>In turn</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    activeOpacity={0.7}
+                    onPress={() => {
+                      setOrder(true), setRandomPlayer(true);
+                    }}
+                    style={[
+                      styles.selectorContainer,
+                      !order && { opacity: 0.5 },
+                    ]}
+                  >
+                    {order && <View style={styles.selector} />}
+                    <Text style={styles.selectorText}>Random</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </LinearGradient>
+
+            <View style={{ alignItems: 'center' }}>
+              <TouchableOpacity
+                activeOpacity={0.7}
+                style={{ top: 14 }}
+                onPress={() => navigation.goBack()}
+              >
+                <Image source={require('../assets/images/lBack.png')} />
+              </TouchableOpacity>
+            </View>
+          </WelcomeAnimationWrapper>
         </View>
       </ScrollView>
     </AppBackground>

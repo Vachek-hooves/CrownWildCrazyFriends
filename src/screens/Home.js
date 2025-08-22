@@ -10,6 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import AppBackground from '../components/AppBackground';
 import MediumButton from '../components/MediumButton';
+import WelcomeAnimationWrapper from '../components/WelcomeAnimationWrapper';
 
 const { height } = Dimensions.get('window');
 
@@ -20,48 +21,52 @@ const Home = () => {
     <AppBackground>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={[styles.container]}>
-          {Platform.OS === 'ios' ? (
-            <Image source={require('../assets/images/homeLogo.png')} />
-          ) : (
-            <Image
-              source={require('../assets/images/icon.png')}
-              style={styles.logo}
-            />
-          )}
+          <WelcomeAnimationWrapper position={-height}>
+            {Platform.OS === 'ios' ? (
+              <Image source={require('../assets/images/homeLogo.png')} />
+            ) : (
+              <Image
+                source={require('../assets/images/icon.png')}
+                style={styles.logo}
+              />
+            )}
+          </WelcomeAnimationWrapper>
 
-          <View style={Platform.OS === 'ios' ? { top: -230 } : { top: 35 }}>
-            <MediumButton
-              title={'START GAME'}
-              onPress={() => navigation.navigate('Game')}
-              style={styles.btn}
-              borders={styles.btnBorders}
-              textStyle={styles.btnText}
-            />
+          <WelcomeAnimationWrapper>
+            <View style={Platform.OS === 'ios' ? { top: -230 } : { top: 35 }}>
+              <MediumButton
+                title={'START GAME'}
+                onPress={() => navigation.navigate('Game')}
+                style={styles.btn}
+                borders={styles.btnBorders}
+                textStyle={styles.btnText}
+              />
 
-            <MediumButton
-              title={'GAME RULES'}
-              onPress={() => navigation.navigate('Rules')}
-              style={styles.btn}
-              borders={styles.btnBorders}
-              textStyle={styles.btnText}
-            />
+              <MediumButton
+                title={'GAME RULES'}
+                onPress={() => navigation.navigate('Rules')}
+                style={styles.btn}
+                borders={styles.btnBorders}
+                textStyle={styles.btnText}
+              />
 
-            <MediumButton
-              title={'SETTINGS'}
-              onPress={() => navigation.navigate('Settings')}
-              style={styles.btn}
-              borders={styles.btnBorders}
-              textStyle={styles.btnText}
-            />
+              <MediumButton
+                title={'SETTINGS'}
+                onPress={() => navigation.navigate('Settings')}
+                style={styles.btn}
+                borders={styles.btnBorders}
+                textStyle={styles.btnText}
+              />
 
-            <MediumButton
-              title={'ABOUT APP'}
-              onPress={() => navigation.navigate('About')}
-              style={styles.btn}
-              borders={styles.btnBorders}
-              textStyle={styles.btnText}
-            />
-          </View>
+              <MediumButton
+                title={'ABOUT APP'}
+                onPress={() => navigation.navigate('About')}
+                style={styles.btn}
+                borders={styles.btnBorders}
+                textStyle={styles.btnText}
+              />
+            </View>
+          </WelcomeAnimationWrapper>
         </View>
       </ScrollView>
     </AppBackground>
@@ -94,7 +99,7 @@ const styles = StyleSheet.create({
     width: 237,
     height: 97,
     borderRadius: 33,
-    marginBottom: 7,
+    marginBottom: 22,
   },
   btnBorders: {
     width: 237,

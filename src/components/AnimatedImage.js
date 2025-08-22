@@ -5,8 +5,7 @@ export default function AnimatedImage({
   source,
   size = 265,
   scaleFrom = 1,
-  scaleTo = 1.07,
-  duration = 900,
+  duration = 300,
 }) {
   const scale = useRef(new Animated.Value(1)).current;
 
@@ -15,7 +14,7 @@ export default function AnimatedImage({
     Animated.loop(
       Animated.sequence([
         Animated.timing(scale, {
-          toValue: scaleTo,
+          toValue: 1.07,
           duration,
           easing: Easing.out(Easing.quad),
           useNativeDriver: true,
@@ -28,7 +27,7 @@ export default function AnimatedImage({
         }),
       ]),
     ).start();
-  }, [duration, scale, scaleFrom, scaleTo]);
+  }, [duration, scale, scaleFrom]);
 
   return (
     <View style={[styles.container, { width: size, height: size }]}>

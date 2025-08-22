@@ -2,7 +2,6 @@ import {
   Dimensions,
   Image,
   Modal,
-  Platform,
   Share,
   StyleSheet,
   Text,
@@ -126,20 +125,9 @@ Task: ${task}`,
         ) : (
           <>
             <LinearGradient
-              colors={['#ffffffff', '#FFF8CE']}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 0, y: 0.6 }}
+              colors={['rgba(255, 248, 206, 1)', 'rgba(222, 205, 109, 1)']}
               style={[styles.gradientContainer]}
             >
-              <LinearGradient
-                colors={['rgba(253, 218, 22, 0.73)', 'rgba(255, 248, 206, 1)']}
-                locations={[0, 0.3]}
-                style={{
-                  ...StyleSheet.absoluteFillObject,
-                  borderRadius: 37,
-                  height: Platform.OS === 'ios' ? '40%' : '60%',
-                }}
-              />
               <Text style={[styles.gradientText]}>
                 {selectedColor
                   ? `TASK FOR ${players[
@@ -184,18 +172,18 @@ Task: ${task}`,
               </View>
             </LinearGradient>
             <View style={{ top: 230 }}>
-              <View style={{ alignItems: 'center' }}>
+              <View style={{ alignItems: 'center', gap: 20 }}>
                 <MediumButton
                   title={'SKIP TASK'}
+                  btnWidth={'55%'}
                   style={styles.btn}
-                  borders={styles.btnBorders}
                   textStyle={styles.btnText}
                   onPress={() => generateTask()}
                 />
                 <MediumButton
                   title={'NEXT PLAYER'}
+                  btnWidth={'55%'}
                   style={styles.btn}
-                  borders={styles.btnBorders}
                   textStyle={styles.btnText}
                   onPress={() => {
                     setSelectedColor('');
@@ -262,13 +250,10 @@ const styles = StyleSheet.create({
     top: 17,
   },
   btn: {
-    width: 237,
     height: 97,
     borderRadius: 33,
-    marginBottom: 5,
   },
   btnBorders: {
-    width: 237,
     height: 105,
     left: -1,
     borderRadius: 33,

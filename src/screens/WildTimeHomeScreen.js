@@ -36,7 +36,7 @@ const Home = () => {
             <View style={Platform.OS === 'ios' ? { top: -230 } : { top: 35 }}>
               <MediumButton
                 title={'START GAME'}
-                onPress={() => navigation.navigate('Game')}
+                onPress={() => navigation.navigate('WildTimeGameScreen')}
                 style={styles.btn}
                 borders={styles.btnBorders}
                 textStyle={styles.btnText}
@@ -44,7 +44,7 @@ const Home = () => {
 
               <MediumButton
                 title={'GAME RULES'}
-                onPress={() => navigation.navigate('Rules')}
+                onPress={() => navigation.navigate('WildTimeRulesScreen')}
                 style={styles.btn}
                 borders={styles.btnBorders}
                 textStyle={styles.btnText}
@@ -52,7 +52,7 @@ const Home = () => {
 
               <MediumButton
                 title={'SETTINGS'}
-                onPress={() => navigation.navigate('Settings')}
+                onPress={() => navigation.navigate('WildTimeSettingsScreen')}
                 style={styles.btn}
                 borders={styles.btnBorders}
                 textStyle={styles.btnText}
@@ -60,7 +60,7 @@ const Home = () => {
 
               <MediumButton
                 title={'ABOUT APP'}
-                onPress={() => navigation.navigate('About')}
+                onPress={() => navigation.navigate('WildTimeAboutScreen')}
                 style={styles.btn}
                 borders={styles.btnBorders}
                 textStyle={styles.btnText}

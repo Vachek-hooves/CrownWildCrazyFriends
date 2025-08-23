@@ -10,7 +10,6 @@ export default function AnimatedImage({
   const scale = useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
-    // Smooth, infinite scale pulse
     Animated.loop(
       Animated.sequence([
         Animated.timing(scale, {

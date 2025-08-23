@@ -9,9 +9,8 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
-
 import AppBackground from '../components/AppBackground';
-import Header from '../components/Header';
+import MainAppHeader from '../components/MainAppHeader';
 import SpinImage from '../components/SpinImage';
 import WelcomeAnimationWrapper from '../components/WelcomeAnimationWrapper';
 
@@ -24,7 +23,7 @@ const Rules = () => {
     <AppBackground>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={[styles.container]}>
-          <Header title={'GAME RULES'} />
+          <MainAppHeader title={'GAME RULES'} />
           <WelcomeAnimationWrapper>
             <LinearGradient
               colors={['#B92D05', 'rgba(185, 45, 5, 0.72)']}

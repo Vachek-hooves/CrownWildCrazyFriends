@@ -6,7 +6,7 @@ export const useStore = () => {
   return useContext(StoreContext);
 };
 
-export const ContextProvider = ({ children }) => {
+export const WildTimeGameContextProvider = ({ children }) => {
   const [selectedColor, setSelectedColor] = useState('');
   const [randomPlayer, setRandomPlayer] = useState(false);
   const [order, setOrder] = useState(false);

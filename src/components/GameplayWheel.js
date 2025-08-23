@@ -2,7 +2,7 @@ import { Alert, StyleSheet, Text, View } from 'react-native';
 import WebView from 'react-native-webview';
 import { useStore } from '../store/context';
 
-export default function Wheel() {
+export default function GameplayWheel() {
   const { setSelectedColor } = useStore();
 
   const htmlContent = `
@@ -10,7 +10,7 @@ export default function Wheel() {
   <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.1"/>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
       *{margin:0;padding:0;}
@@ -107,7 +107,12 @@ export default function Wheel() {
       <WebView
         originWhitelist={['*']}
         source={{ html: htmlContent }}
-        style={{ backgroundColor: 'transparent', marginTop: 40 }}
+        style={{
+          backgroundColor: 'transparent',
+          marginTop: 40,
+          width: 350,
+          height: 280,
+        }}
         onMessage={handleMessage}
       />
     </>

@@ -1,11 +1,11 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import WelcomeWildTimeScreen from '../screens/WelcomeWildTimeScreen.js';
-import Home from '../screens/Home';
-import Rules from '../screens/Rules';
-import About from '../screens/About';
-import Game from '../screens/Game';
-import Settings from '../screens/Settings';
-import Gameplay from '../screens/Gameplay';
+import WildTimeHomeScreen from '../screens/WildTimeHomeScreen.js';
+import WildTimeRulesScreen from '../screens/WildTimeRulesScreen.js';
+import WildTimeAboutScreen from '../screens/WildTimeAboutScreen.js';
+import WildTimeGameScreen from '../screens/WildTimeGameScreen.js';
+import WildTimeSettingsScreen from '../screens/WildTimeSettingsScreen.js';
+import WildTimeGameplayScreen from '../screens/WildTimeGameplayScreen.js';
 
 const Stack = createStackNavigator();
 
@@ -16,12 +16,24 @@ const StackNavigation = () => {
         name="WelcomeWildTimeScreen"
         component={WelcomeWildTimeScreen}
       />
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Rules" component={Rules} />
-      <Stack.Screen name="About" component={About} />
-      <Stack.Screen name="Game" component={Game} />
-      <Stack.Screen name="Settings" component={Settings} />
-      <Stack.Screen name="Gameplay" component={Gameplay} />
+      <Stack.Screen name="WildTimeHomeScreen" component={WildTimeHomeScreen} />
+      <Stack.Screen
+        name="WildTimeRulesScreen"
+        component={WildTimeRulesScreen}
+      />
+      <Stack.Screen
+        name="WildTimeAboutScreen"
+        component={WildTimeAboutScreen}
+      />
+      <Stack.Screen name="WildTimeGameScreen" component={WildTimeGameScreen} />
+      <Stack.Screen
+        name="WildTimeSettingsScreen"
+        component={WildTimeSettingsScreen}
+      />
+      <Stack.Screen
+        name="WildTimeGameplayScreen"
+        component={WildTimeGameplayScreen}
+      />
     </Stack.Navigator>
   );
 };

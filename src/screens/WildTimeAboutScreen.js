@@ -12,7 +12,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 import AppBackground from '../components/AppBackground';
-import Header from '../components/Header';
+import MainAppHeader from '../components/MainAppHeader';
 import WelcomeAnimationWrapper from '../components/WelcomeAnimationWrapper';
 
 const { height } = Dimensions.get('window');
@@ -20,7 +20,7 @@ const { height } = Dimensions.get('window');
 const About = () => {
   const navigation = useNavigation();
 
-  const handleShare = async () => {
+  const shareInfoDetails = async () => {
     try {
       await Share.share({
         message: `Wild Crazy Friends Time is a fun party game with a wheel of challenges for the company. No bets, no winnings - just laughter, creativity and good mood.`,
@@ -34,7 +34,7 @@ const About = () => {
     <AppBackground>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={[styles.container]}>
-          <Header title={'ABOUT APP'} screen={'About'} />
+          <MainAppHeader title={'ABOUT APP'} screen={'About'} />
           <WelcomeAnimationWrapper>
             <LinearGradient
               colors={['#B92D05', 'rgba(185, 45, 5, 0.72)']}
@@ -65,7 +65,7 @@ const About = () => {
                   <TouchableOpacity
                     activeOpacity={0.7}
                     style={styles.shareBtn}
-                    onPress={handleShare}
+                    onPress={shareInfoDetails}
                   >
                     <Image source={require('../assets/icons/share.png')} />
                   </TouchableOpacity>

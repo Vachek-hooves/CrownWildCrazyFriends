@@ -1,17 +1,17 @@
 import { Dimensions, ScrollView, View } from 'react-native';
-import AnimatedImage from '../components/AnimatedImage';
+import AnimatedImage from './AnimatedImage';
 import AppBackground from './AppBackground';
 
 const { height } = Dimensions.get('window');
 
-const Loader = () => {
+const WildTimeMainLoader = () => {
   return (
     <AppBackground>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View
           style={{
             alignItems: 'center',
-            marginTop: height * 0.29,
+            marginTop: height * 0.34,
             marginBottom: 100,
           }}
         >
@@ -22,4 +22,4 @@ const Loader = () => {
   );
 };
 
-export default Loader;
+export default WildTimeMainLoader;

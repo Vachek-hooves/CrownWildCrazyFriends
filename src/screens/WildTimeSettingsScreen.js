@@ -9,10 +9,8 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
-import { useState } from 'react';
-
 import AppBackground from '../components/AppBackground';
-import Header from '../components/Header';
+import MainAppHeader from '../components/MainAppHeader';
 import { useStore } from '../store/context';
 import WelcomeAnimationWrapper from '../components/WelcomeAnimationWrapper';
 
@@ -20,7 +18,6 @@ const { height } = Dimensions.get('window');
 
 const Settings = () => {
   const navigation = useNavigation();
-
   const {
     setRandomPlayer,
     setIsEnabledMusic,
@@ -35,7 +32,7 @@ const Settings = () => {
     <AppBackground>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={[styles.container]}>
-          <Header title={'SETTINGS'} />
+          <MainAppHeader title={'SETTINGS'} />
           <WelcomeAnimationWrapper>
             <LinearGradient
               colors={['#B92D05', 'rgba(185, 45, 5, 0.72)']}

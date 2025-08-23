@@ -1,7 +1,7 @@
 import { Image, Platform, StyleSheet, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-const Header = ({ title, screen }) => {
+const MainAppHeader = ({ title, screen }) => {
   return (
     <View
       style={{
@@ -83,4 +83,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Header;
+export default MainAppHeader;

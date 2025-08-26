@@ -1,6 +1,7 @@
 import { Dimensions, ScrollView, View } from 'react-native';
 import AnimatedImage from './AnimatedImage';
 import AppBackground from './AppBackground';
+import LinearGradient from 'react-native-linear-gradient';
 
 const { height } = Dimensions.get('window');
 

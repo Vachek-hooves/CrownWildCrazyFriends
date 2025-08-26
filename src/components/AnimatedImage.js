@@ -5,7 +5,7 @@ export default function AnimatedImage({
   source,
   size = 265,
   scaleFrom = 1,
-  duration = 300,
+  duration = 800,
 }) {
   const scale = useRef(new Animated.Value(1)).current;
 

@@ -73,7 +73,7 @@ const WelcomeWildTimeScreen = () => {
               }}
             >
               <LinearGradient
-                colors={['#B92D05', 'rgba(185, 44, 5, 0.56)']}
+                colors={['#B92D05', 'rgba(185, 44, 5, 0.79)']}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={{ borderRadius: 33, marginTop: 14 }}
@@ -86,7 +86,7 @@ const WelcomeWildTimeScreen = () => {
                   <MediumButton
                     title={onboard[index].button}
                     btnWidth={'55%'}
-                    onPress={() => setIndex(prev => prev + 1)}
+                    onPress={() => setIndex(index + 1)}
                   />
                 </View>
               </LinearGradient>

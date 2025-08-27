@@ -40,7 +40,7 @@ const Settings = () => {
               end={{ x: 1, y: 0 }}
               style={{ borderRadius: 55, marginTop: 63 }}
             >
-              <View style={styles.rulesContainer}>
+              {/* <View style={styles.rulesContainer}>
                 <Text style={styles.title}>BACKGROUND MUSIC</Text>
                 <TouchableOpacity
                   activeOpacity={0.7}
@@ -54,7 +54,7 @@ const Settings = () => {
                   <View style={styles.selector} />
                   {!toggleMusic && <Text style={styles.selectorText}>OFF</Text>}
                 </TouchableOpacity>
-              </View>
+              </View> */}
             </LinearGradient>
 
             <LinearGradient

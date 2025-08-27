@@ -86,7 +86,13 @@ const WelcomeWildTimeScreen = () => {
                   <MediumButton
                     title={onboard[index].button}
                     btnWidth={'55%'}
-                    onPress={() => setIndex(index + 1)}
+                    onPress={() => {
+                      if (index < onboard.length - 1) {
+                        setIndex(index + 1);
+                      } else {
+                        navigation.navigate('WildTimeHomeScreen');
+                      }
+                    }}
                   />
                 </View>
               </LinearGradient>
@@ -101,7 +107,7 @@ const WelcomeWildTimeScreen = () => {
 const styles = StyleSheet.create({
   container: { paddingTop: height * 0.11, alignItems: 'center', padding: 30 },
   welcomeContainer: {
-    width: '100%',
+    width: '110%',
     padding: 30,
     alignItems: 'center',
   },

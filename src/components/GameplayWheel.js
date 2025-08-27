@@ -110,8 +110,8 @@ export default function GameplayWheel() {
         style={{
           backgroundColor: 'transparent',
           marginTop: 40,
-          width: 350,
-          height: 280,
+          width: 330,
+          height: 290,
         }}
         onMessage={handleMessage}
       />

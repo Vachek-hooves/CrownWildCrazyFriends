@@ -37,7 +37,7 @@ const Game = () => {
           <MainAppHeader title={'START GAME'} />
           <WelcomeAnimationWrapper>
             <LinearGradient
-              colors={['#B92D05', 'rgba(185, 45, 5, 0.72)']}
+              colors={['#b93205ff', 'rgba(234, 223, 10, 0.72)']}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
               style={{ borderRadius: 55, marginTop: 53 }}

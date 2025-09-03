@@ -73,7 +73,7 @@ const WelcomeWildTimeScreen = () => {
               }}
             >
               <LinearGradient
-                colors={['#B92D05', 'rgba(185, 44, 5, 0.79)']}
+                colors={['#e2d40dff', 'rgba(226, 94, 12, 0.79)']}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={{ borderRadius: 33, marginTop: 14 }}

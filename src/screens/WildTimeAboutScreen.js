@@ -37,8 +37,8 @@ const About = () => {
           <MainAppHeader title={'ABOUT APP'} screen={'About'} />
           <WelcomeAnimationWrapper>
             <LinearGradient
-              colors={['#B92D05', 'rgba(185, 45, 5, 0.72)']}
-              start={{ x: 0, y: 0 }}
+              colors={['rgba(236, 8, 8, 0.72)', 'rgba(247, 184, 10, 0.72)']}
+              start={{ x: 0, y: 1 }}
               end={{ x: 1, y: 0 }}
               style={{ borderRadius: 44, marginTop: 63 }}
             >

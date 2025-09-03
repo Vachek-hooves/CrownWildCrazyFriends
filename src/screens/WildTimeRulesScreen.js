@@ -26,8 +26,8 @@ const Rules = () => {
           <MainAppHeader title={'GAME RULES'} />
           <WelcomeAnimationWrapper>
             <LinearGradient
-              colors={['#B92D05', 'rgba(185, 45, 5, 0.72)']}
-              start={{ x: 0, y: 0 }}
+              colors={['#B92D05', 'rgba(228, 214, 13, 0.72)']}
+              start={{ x: 0, y: 1 }}
               end={{ x: 1, y: 0 }}
               style={{ borderRadius: 44, marginTop: 63 }}
             >

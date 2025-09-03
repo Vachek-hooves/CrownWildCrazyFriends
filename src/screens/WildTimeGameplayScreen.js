@@ -322,8 +322,9 @@ Task: ${task}`,
 
   return (
     <ImageBackground
-      source={require('../assets/images/bg.png')}
+      source={require('../assets/bg/bg.png')}
       style={{ flex: 1 }}
+      blurRadius={10}
     >
       {selectedColor && (
         <BlurView style={styles.blurBg} blurType="dark" blurAmount={1} />
@@ -347,7 +348,7 @@ Task: ${task}`,
         ) : (
           <>
             <LinearGradient
-              colors={['rgba(255, 248, 206, 1)', 'rgba(222, 205, 109, 1)']}
+              colors={['rgba(255, 248, 206, 1)', 'rgba(235, 142, 11, 1)']}
               style={styles.gradientContainer}
             >
               <Text style={[styles.gradientText]}>
@@ -370,7 +371,7 @@ Task: ${task}`,
         <Modal animationType="slide" transparent={true} visible={true}>
           <View style={{}}>
             <LinearGradient
-              colors={['#B92D05', 'rgba(185, 45, 5, 0.72)']}
+              colors={['#ed0a0aff', 'rgba(243, 207, 9, 0.72)']}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
               style={styles.containerWrap}

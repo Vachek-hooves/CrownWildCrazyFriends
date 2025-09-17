@@ -81,6 +81,7 @@ const App = () => {
   const [isAppsFlyerReady, setIsAppsFlyerReady] = useState(false);
   const [referrer, setReferrer] = useState(null);
   const [appsResponse, setAppsResponse] = useState(null);
+  
   useEffect(() => {
     const initializeApp = async () => {
       console.log('🚀 Starting app initialization...');
